@@ -5,9 +5,6 @@
 body {
     margin: 0;
     background: no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -20,6 +17,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-self: flex-start;
 }
 
 div.top {
@@ -47,4 +45,28 @@ div#crypto-top {
 
 div#crypto-top > span {
     margin-left: 10px;
+}
+
+div#weather {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+div#weather > img {
+    width: 70px;
+}
+
+p.weather-city {
+    width: 100%;
+    text-align: right;
+    margin: 0;
+    margin-top: -10px;
+}
+
+p.weather-temp {
+    margin: 0;
+    font-size: 1.7rem;
+    margin-left: -10px;
 }

@@ -28,9 +28,9 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
             <span>${data.name}</span> <!-- Dogecoin name -->
         `
         document.getElementById("crypto").innerHTML += `
-            <p>🎯: $${data.market_data.current_price.usd}</p> <!-- Current price -->
-            <p>👆: $${data.market_data.high_24h.usd}</p>  <!-- High price in the last 24 hours -->
-            <p>👇: $${data.market_data.low_24h.usd}</p> <!-- Low price in the last 24 hours -->
+            <p>🎯: R${data.market_data.current_price.zar}</p> <!-- Current price -->
+            <p>👆: R${data.market_data.high_24h.zar}</p>  <!-- High price in the last 24 hours -->
+            <p>👇: R${data.market_data.low_24h.zar}</p> <!-- Low price in the last 24 hours -->
         `
     })
     .catch(err => console.error(err)) // Log any errors to the console
@@ -38,7 +38,7 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
 // Function to get and display the current time
 function getCurrentTime() {
     const date = new Date()
-    document.getElementById("time").textContent = date.toLocaleTimeString("en-sa", {timeStyle: "short"})
+    document.getElementById("time").textContent = date.toLocaleTimeString("en-sa", {timeStyle: "medium"})
 }
 
 
@@ -47,7 +47,7 @@ setInterval(getCurrentTime, 1000)
 
 // Get the user's current location and fetch weather data based on it
 navigator.geolocation.getCurrentPosition(position => {
-    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`)
         .then(res => {
             if (!res.ok) {
                 throw Error("Weather data not available") // Throw an error if weather data isn't available
